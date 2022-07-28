@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+//convert given 
 Console.Write("Write any text to change in upper:");
 string Name = Console.ReadLine();
 string outCapName =Name.ToUpper();
