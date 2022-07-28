@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+//class assignment
 //Program to capitalize entered text.
 /*Console.Write("Write any text to change in upper:");
 string Name = Console.ReadLine();
@@ -13,6 +14,7 @@ double valFeet = double.Parse(valMeter) * 3.2808399;
 Console.WriteLine($"Converted output is:  {valFeet}");
 */
 
+//Home assignment
 //Program to calculate area of circle.
 
 Console.WriteLine("Enter the value of radius:");
