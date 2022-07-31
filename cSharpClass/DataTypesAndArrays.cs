@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
 //class assignment
+//this is program.cs file rename as datatypeandArrays
 //Program to capitalize entered text.
 /*Console.Write("Write any text to change in upper:");
 string Name = Console.ReadLine();
