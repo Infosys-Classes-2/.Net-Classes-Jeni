@@ -17,7 +17,7 @@ Console.WriteLine($"Converted output is:  {valFeet}");
 //Home assignment
 //Program to calculate area of circle.
 
-Console.WriteLine("Enter the value of radius:");
+/*Console.WriteLine("Enter the value of radius:");
 int radius = Convert.ToInt32(Console.ReadLine());
 double area = (3.14) * radius * radius;
 Console.WriteLine($"The Area of circle =  {area}");
@@ -30,5 +30,9 @@ var years = Math.Truncate(days / 365);
 var months = Math.Truncate((days % 365) / 30);
 var weeks = Math.Truncate(((days % 365) % 30)/7);
 var remainingDays = Math.Truncate(((days % 365) % 30)%7);
-Console.WriteLine($"Days  {days} = {years} year, {months} months, {weeks} weeks & {remainingDays} days");
+Console.WriteLine($"Days  {days} = {years} year, {months} months, {weeks} weeks & {remainingDays} days");*/
+
+
+
+
 
