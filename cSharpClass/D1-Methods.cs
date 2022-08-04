@@ -51,10 +51,10 @@ public class MethodLearning
 
     
     // 1. Write a function to return min, max and average of given array of numbers. Hint GetMinMax() 
-    public (short,short,int) GetMinMaxAvg(short[] numbers)
+    public (short,short,float) GetMinMaxAvg(short[] numbers)
     {
         short min =short.MaxValue, max=short.MinValue;
-        int avg =0;
+        float sum =0;
         int len = numbers.Length;
         foreach(short num in numbers)
         {
@@ -62,9 +62,9 @@ public class MethodLearning
                 min = num;
             if(num>max)
                 max=num;
-            avg = avg + num ;
+            sum = sum + num ;
         }
-        return (min,max, avg/len);  //tuple of 2 variales we can use any no of variables in tuples of variables
+        return (min,max, sum/len);  //tuple of 2 variales we can use any no of variables in tuples of variables
     }
 
 

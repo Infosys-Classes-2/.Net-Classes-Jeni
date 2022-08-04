@@ -1,7 +1,7 @@
 //Animal
 using System;
 
-internal class Animal //if no access modifier is defined by default it is internal
+internal class Animal1 //if no access modifier is defined by default it is internal
 {
     //Members: fields, methods
     //Access modifiers :public, private,internal, protected
