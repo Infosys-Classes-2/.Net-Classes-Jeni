@@ -36,8 +36,21 @@ class TestClasses
 
         //Shape2D shape = new();
         //shape.name = "Rectangle";
-        Shape2D shape = new("Rectangle");
-        shape.PrintDetail();
+        // Shape2D shape = new("Rectangle");
+        // shape.PrintDetail();
+
+        Assignment assignment =new();
+        string areaOfCircle = assignment.GetAreaOfCircle(5);
+        string convertedValue = assignment.ConvertDaysToYearMonthWeekDays(921);
+
+        assignment.PrintData(Convert.ToString(areaOfCircle));
+        assignment.PrintData(convertedValue);
+        assignment.PrintPrimeNumber();
+        assignment.PrintPattern();
+
+        VehicleCategory vehicleType = new();
+        bool status = vehicleType.CheckFuel(20);
+        
         
     }
 }
