@@ -66,4 +66,75 @@ public void PrintData (string inputValue)
 {
     Console.WriteLine(inputValue);
 }
+
+//Write a C# program to calculate product of digits of a number
+public int GetProduct (int number)
+{
+    int  Reminder, Product=1;
+   while (number !=0)
+   {
+      Reminder=number%10;
+      number = number /10;
+      Product = Product * Reminder;
+   }
+   return Product;
+}
+
+//Write a C# function to display the nth Fibonacci number.
+
+internal int GetNthFFbonacciNumber(int n)
+{
+ //base case
+ if(n==1)
+     return 0;
+ if (n==2)
+    return 1;   //instead of this 4 line code we can use following
+
+//KISS
+if (n<=2)
+    return n-1;
+
+    return GetNthFFbonacciNumber(n-1)+GetNthFFbonacciNumber(n-2);
+
+   }
+
+   internal int GetNthFibonacciIterative(int n)
+   {
+       int [] series = new int[n];
+       series[0] =0;
+       series[1] =1;
+ 
+    for (int i =2; i<n; i++)
+    {
+        series[i] = series[i-1] + series[i-2];
+    }
+
+    return series[n-1];
+            
+   }
+
+   //Write a C# program to print binary equivalent of an integer.
+
+  static string GetIntBinaryString(int n)
+    {
+        char[] b = new char[32];
+        int pos = 31;
+        int i = 0;
+        
+        while (i < 32)
+        {
+            if ((n & (1 << i)) != 0)
+            {
+                b[pos] = '1';
+            }
+            else
+            {
+                b[pos] = '0';
+            }
+            pos--;
+            i++;
+        }
+        return new string(b);
+    }
+
 }

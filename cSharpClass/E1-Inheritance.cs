@@ -31,7 +31,6 @@
 //         var x = type == AnimalCategory.vertibrates ? "bones" : "no bones";
 //         Console.WriteLine("I have{x}");
 //     }
-
 // }
 // // public class Human: Animal
 // // {

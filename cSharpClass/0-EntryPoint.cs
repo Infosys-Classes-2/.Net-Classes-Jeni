@@ -40,16 +40,25 @@ class TestClasses
         // shape.PrintDetail();
 
         Assignment assignment =new();
-        string areaOfCircle = assignment.GetAreaOfCircle(5);
-        string convertedValue = assignment.ConvertDaysToYearMonthWeekDays(921);
+        // string areaOfCircle = assignment.GetAreaOfCircle(5);
+        // string convertedValue = assignment.ConvertDaysToYearMonthWeekDays(921);
 
-        assignment.PrintData(Convert.ToString(areaOfCircle));
-        assignment.PrintData(convertedValue);
-        assignment.PrintPrimeNumber();
-        assignment.PrintPattern();
+        // assignment.PrintData(Convert.ToString(areaOfCircle));
+        // assignment.PrintData(convertedValue);
+        // assignment.PrintPrimeNumber();
+        // assignment.PrintPattern();
 
-        VehicleCategory vehicleType = new();
-        bool status = vehicleType.CheckFuel(20);
+        //VehicleCategory vehicleType = new();
+        //bool status = vehicleType.CheckFuel(20);
+        
+        // int result = assignment.GetProduct(254);
+        // Console.WriteLine($"the product of digit is {result}");
+
+        var y= assignment.GetNthFibonacciIterative(45);
+        Console.WriteLine("iterative version " +y);
+
+        var x = assignment.GetNthFFbonacciNumber(45);
+        Console.WriteLine("Recorsive version " + x);  //takes more time than interative method
         
         
     }
