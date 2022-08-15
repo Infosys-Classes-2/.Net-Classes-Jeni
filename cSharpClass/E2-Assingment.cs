@@ -137,4 +137,23 @@ if (n<=2)
         return new string(b);
     }
 
+//Write a C# program to print binary equivalent of an integer
+public string DecimalToBinary(int decimalNumber)
+    {
+            int remainder;
+            string result =" ";
+            while (decimalNumber > 0)
+            {
+                remainder = decimalNumber % 2;
+                decimalNumber /= 2;
+                result = remainder.ToString() + result;
+            }
+            return result;
+       
+    }
 }
+
+
+
+
+ 

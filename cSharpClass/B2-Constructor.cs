@@ -2,7 +2,7 @@
 
 // public class Shape2D
 // {
-//     //default constructor
+//     //default constructor - parameterless
 //     public Shape2D()  //This is constructure which is default  we dont have to define constructor , actually constructure is a kind of default method without parameter
 //     {
 
@@ -20,3 +20,4 @@
 //         Console.WriteLine($"I am {name}");
 //     }
 // }
+

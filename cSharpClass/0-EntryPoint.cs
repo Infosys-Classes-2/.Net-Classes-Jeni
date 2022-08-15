@@ -39,7 +39,7 @@ class TestClasses
         // Shape2D shape = new("Rectangle");
         // shape.PrintDetail();
 
-        Assignment assignment =new();
+        //Assignment assignment =new();
         // string areaOfCircle = assignment.GetAreaOfCircle(5);
         // string convertedValue = assignment.ConvertDaysToYearMonthWeekDays(921);
 
@@ -54,11 +54,17 @@ class TestClasses
         // int result = assignment.GetProduct(254);
         // Console.WriteLine($"the product of digit is {result}");
 
-        var y= assignment.GetNthFibonacciIterative(45);
-        Console.WriteLine("iterative version " +y);
+        // var y= assignment.GetNthFibonacciIterative(45);
+        // Console.WriteLine("iterative version " +y);
 
-        var x = assignment.GetNthFFbonacciNumber(45);
-        Console.WriteLine("Recorsive version " + x);  //takes more time than interative method
+        // var x = assignment.GetNthFFbonacciNumber(45);
+        // Console.WriteLine("Recorsive version " + x);  //takes more time than interative method
+
+        // var x= assignment.DecimalToBinary(10);
+        // Console.WriteLine($"binary converted no is {0}: {x}");
+
+        LINQ l =new();
+        l.LearnLINQ();
         
         
     }
