@@ -17,12 +17,12 @@ public class LINQ
         // }
 
         //Method Syntax
-        var evenNumbers = numbers.Where(n=>n%2==0); 
-        //ie equivalent to following called Expression Syntax
-        evenNumbers = from n in numbers
-        where n%2 ==0 
-        select n;
-        Console.Write($"Even Numbers :{evenNumbers}");
+        // var evenNumbers = numbers.Where(n=>n%2==0); 
+        // //ie equivalent to following called Expression Syntax
+        // evenNumbers = from n in numbers
+        // where n%2 ==0 
+        // select n;
+        // Console.Write($"Even Numbers :{evenNumbers}");
 
         //2. Fetch all odd numbers from numbers'
         var oddNumber = numbers.Where(n=>n%2!=0);
@@ -35,7 +35,11 @@ public class LINQ
         var cubes = numbers.Select(x=>x*x*x);
 
         //5.Get Squares of all even numbers in "numbers"
-        var squares = evenNumbers.Select(x=>x*x);
+        var evenNumbers = numbers.Where(n=>n%2==0); 
+        foreach(var x in evenNumbers)
+        {
+            var squares =  x*x;
+        }
     }
         private bool IsPerfectSquare(int n)
         {
