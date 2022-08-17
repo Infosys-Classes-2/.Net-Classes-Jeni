@@ -164,10 +164,10 @@ public string DecimalToBinary(int decimalNumber)
         for (int i=1; i<=10; i++)
         {
            Directory.CreateDirectory(@"D:\dotnet\Dir"+i) ;
-           string filePath = @"D:\dotnet\Dir"+i+ "test"+i+".txt";
+           string filePath = @"D:\dotnet\Dir"+i+ "\\test"+i+".txt";
            FileInfo fi = new(filePath);
            File.WriteAllText(filePath,"Last update Date: " + fi.LastWriteTime);
-           File.WriteAllText(filePath,"Size:"+ (float)fi.Length / 1024 +"KB");
+           //File.WriteAllText(filePath,"Size:"+ (float)fi.Length / 1024 +"KB");
        
         }
 
