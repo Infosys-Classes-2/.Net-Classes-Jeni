@@ -160,17 +160,74 @@ public string DecimalToBinary(int decimalNumber)
 
     //Write a C# program to create 10 folders, in each folder a text should be created with its meta information as content.
     public void CreateFileFolder()
-    {
+    {        
         for (int i=1; i<=10; i++)
         {
            Directory.CreateDirectory(@"D:\dotnet\Dir"+i) ;
-           string filePath = @"D:\dotnet\Dir"+i+ "\\test"+i+".txt";
+           string filePath = @"D:\dotnet\Dir"+i+ "\\test"+i+".txt";        
+            
            FileInfo fi = new(filePath);
-           File.WriteAllText(filePath,"Last update Date: " + fi.LastWriteTime);
-           //File.WriteAllText(filePath,"Size:"+ (float)fi.Length / 1024 +"KB");
-       
+
+           string info = $"Created Date: {fi.CreationTime} \n Last Modified Date :{fi.LastWriteTime}\n Size : {(float)fi.Length/1024}kb \n File Type: {fi.Extension}";
+           //or use multiline
+        //    string info = $"Created Date: {fi.CreationTime} \n "+
+        //   $"Last Modified Date :{fi.LastWriteTime}\n "+
+        //    $"Size : {(float)fi.Length/1024}kb \n "+
+        //    $"File Type: {fi.Extension}";
+           File.WriteAllText(filePath,info);
+                 
+        }
+    }
+
+    //Write a program to list all files/folders in a folder in following format
+    //File/Folder Name    created Date size  IsFile
+    //dir1      2022-12-05  0.23 kb  N
+
+    public void displayFileFolder()
+    {
+        string folderPath = @"D:\store";
+
+        var files = Directory.EnumerateFiles(folderPath);
+        var folders = Directory.EnumerateDirectories(folderPath);
+
+        string infoTable= "File/Folder Name \t\t Created Date\t\t Size\t\tIsFile\n";
+
+        foreach(var file in files)
+        {
+            FileInfo fi=new(file);
+            var fileInfo = $"{fi.Name}\t\t{fi.CreationTime}\t\t{GetFileSize(fi.Length)}\t\t True\n";
+            infoTable += fileInfo;
+            //or infoTable =inforTable+ fileInfo;
         }
 
+        foreach(var folder in folders)
+        {
+            DirectoryInfo di = new DirectoryInfo(folder);
+            var fileInfo = $"{di.Name}\t\t{di.CreationTime}\t\t Null \t\t False\n";
+            infoTable += fileInfo;            
+        }
+
+        Console.WriteLine(infoTable);
+       
+    }
+
+    string GetFileSize(long lenInBytes)
+    {
+        var lenInKB = (float)lenInBytes/1024;
+        if (lenInKB>1024)
+        {
+            var lenInMB = lenInKB/1024;
+            if(lenInMB>1024)
+            {
+                var lenInGB = lenInMB/1024;
+                 return $"{lenInGB} GB";
+            }
+            else
+                return  $"{lenInMB} MB";
+        }
+        else
+         return $"{lenInKB} KB";
+        
     }
 }
 
