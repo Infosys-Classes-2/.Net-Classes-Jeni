@@ -39,7 +39,7 @@ class TestClasses
         // Shape2D shape = new("Rectangle");
         // shape.PrintDetail();
 
-        //Assignment assignment =new();
+        Assignment assignment =new();
         // string areaOfCircle = assignment.GetAreaOfCircle(5);
         // string convertedValue = assignment.ConvertDaysToYearMonthWeekDays(921);
 
@@ -63,9 +63,16 @@ class TestClasses
         // var x= assignment.DecimalToBinary(10);
         // Console.WriteLine($"binary converted no is {0}: {x}");
 
-        LINQ l =new();
-        l.LearnLINQ();
-        
+        // LINQ l =new();
+        // l.LearnLINQ();
+
+        //LearnParallel lp = new();
+        // lp.Do();
+         
+        // FileIO fileIO =new();
+        // fileIO.Do();
+
+        assignment.CreateFileFolder();
         
     }
 }

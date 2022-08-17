@@ -1,6 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+
+
 public class Assignment
 {
+    List<string> folderNames = new List<string> {"Assignment1", "Assignment2", "Assignment3","Assignment4","Assignment5"};
 //Function to Calculate Area of Circle
 public string GetAreaOfCircle(double radius)
 {
@@ -150,6 +156,21 @@ public string DecimalToBinary(int decimalNumber)
             }
             return result;
        
+    }
+
+    //Write a C# program to create 10 folders, in each folder a text should be created with its meta information as content.
+    public void CreateFileFolder()
+    {
+        for (int i=1; i<=10; i++)
+        {
+           Directory.CreateDirectory(@"D:\dotnet\Dir"+i) ;
+           string filePath = @"D:\dotnet\Dir"+i+ "test"+i+".txt";
+           FileInfo fi = new(filePath);
+           File.WriteAllText(filePath,"Last update Date: " + fi.LastWriteTime);
+           File.WriteAllText(filePath,"Size:"+ (float)fi.Length / 1024 +"KB");
+       
+        }
+
     }
 }
 
