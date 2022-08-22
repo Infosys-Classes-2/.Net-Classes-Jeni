@@ -204,7 +204,7 @@ public string DecimalToBinary(int decimalNumber)
         {
             DirectoryInfo di = new DirectoryInfo(folder);
             var fileInfo = $"{di.Name}\t\t{di.CreationTime}\t\t Null \t\t False\n";
-            infoTable += fileInfo;            
+            infoTable += fileInfo;              
         }
 
         Console.WriteLine(infoTable);

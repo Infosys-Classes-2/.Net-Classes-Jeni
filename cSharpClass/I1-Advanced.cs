@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System;
 public class LearnParallel
+
 {
     int[] numbers = {12,23,30,46,10,37};
     public void Do()
@@ -39,4 +40,26 @@ private long GetFactorial(int n)
     return 1;
     return n*GetFactorial(n-1);
 }
+
+}
+
+//async means independent not synchronized with others
+public class LearnAsync
+{
+    void async async task GetSomething()
+    {
+        await GetSomething1();
+        await GetSomething2();
+        
+    }
+
+    private async Task GetSomething2()
+    {
+        await Task.Delay(3000);
+    }
+
+    private async Task GetSomething1()
+    {
+        await Task.Delay(3000);
+    }
 }
