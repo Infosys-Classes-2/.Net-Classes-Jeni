@@ -1,0 +1,20 @@
+﻿
+@model int
+<html>
+    <head>
+        <title>Shows the Table of Given Number:</title>
+</head>
+<body>
+    <form method="post">
+        Number Please:<input type="text" name="intVal" />
+        <button type="submit" class="btn btn-success">Show Table</button>
+    </form>
+    @if(Model > 0){
+        @for (int i = 1; i <= 10; i++)
+    {
+        <h4>@Model X @i=@(Model * i)</h4>
+    }
+    } 
+
+</body>
+</html>
