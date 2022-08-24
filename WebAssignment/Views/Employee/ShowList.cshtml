@@ -1,13 +1,11 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
+
 
 <div class="text-center">
     <h1 class="display-4">List of Names:</h1>
-
-    <table class="table">
+     <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -16,24 +14,16 @@
                 <th scope="col">Handle</th>
             </tr>
         </thead>
+        @for(int i=1; i<=10;i++)
+        {
         <tbody>
             <tr>
-                <th scope="row">1</th>
+                <th scope="row">@i</th>
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>mdo</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>twitter</td>
-            </tr>
-        </tbody>
+       </tbody>
+    }
     </table>
 </div>

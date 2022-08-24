@@ -4,16 +4,104 @@
     <head>
         <title>Array works:</title>
 </head>
-<body>
-  <h4>all numbers:[
-      @foreach (int i in Model) 
+    <body>
+   
+        <h6>
+            all numbers:[
+            @foreach (int i in Model)
 
         {
-                    <b>@i,</b>            
+            <b>@i,</b>
+        }
+            ]
+        </h6>
+
+    <h6> Multiples of 3:[
+        @foreach (int i in Model)
+        {
+            if(@i%3 == 0)
+            {
+              <b>@i,</b>
+            }
+        }
+     ] </h6>
+     <h6> Multiples of 4:[
+        @foreach (int i in Model)
+        {
+            if(@i%4 == 0)
+            {
+              <b>@i,</b>
+            }
+        }
+     ] </h6>
+    <h6>
+        Multiples of 5:[
+        @foreach (int i in Model)
+        {
+            if (@i % 5 == 0)
+            {
+                <b>@i,</b>
+            }
         }
         ]
-        </h4>
-        <h4>@Model</h4>
+    </h6>
+    <table class="table table-hover" alialign="top" border="1">
+        <tr>
+            <td width="120"> all numbers: </td>
+            <td>
+                [
+                @foreach (int i in Model)
 
-</body>
+                {
+                    <i>@i,</i>
+                }
+                ]
+            </td>
+        </tr>
+        <tr>
+            <td>Multiples of 3:</td>
+            <td>
+                [
+                @foreach (int i in Model)
+                {
+                    if (@i % 3 == 0)
+                    {
+                        <i>@i,</i>
+                    }
+                }
+                ]
+            </td>
+        </tr>
+        <tr>
+            <td>Multiples of 4:</td>
+            <td>
+                [
+                @foreach (int i in Model)
+                {
+                    if (@i % 4 == 0)
+                    {
+                        <i>@i,</i>
+                    }
+                }
+                ]
+            </td>
+        </tr>
+        <tr>
+            <td>Multiples of 5:</td>
+            <td>
+                [
+                @foreach (int i in Model)
+                {
+                    if (@i % 5 == 0)
+                    {
+                        <i>@i,</i>
+                    }
+                }
+                ]
+            </td>
+        </tr>
+    </table>
+            
+
+    </body>
 </html>
