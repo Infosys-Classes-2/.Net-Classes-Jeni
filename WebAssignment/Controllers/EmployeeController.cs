@@ -14,6 +14,7 @@ public class EmployeeController : Controller
         {
             new()
         {
+            id = 1,
             FirstName = "Ram",
             LastName = "Basnet",
             Designation = "Software Engineer",
@@ -24,6 +25,7 @@ public class EmployeeController : Controller
 
         new()
         {
+            id=2,
             FirstName = "Jenny",
             LastName = "Maharjan",
             Designation = "Sr. Software Engineer",
@@ -70,12 +72,21 @@ public class EmployeeController : Controller
     {
         //Add to db
         // return RedirectToAction("List"); old method
+       
         return RedirectToAction(nameof(List));  //it is inter-related to actionname if we change the action name it will show error in compile time
     }
-
+    [HttpGet]
     public IActionResult Edit(int ID)
     {
         var employee = employees.Where(x => x.id == ID).First();
         return View(employee);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Employee employee)
+    {
+        //Add to db
+        // return RedirectToAction("List"); old method
+        return RedirectToAction(nameof(List));  //it is inter-related to actionname if we change the action name it will show error in compile time
     }
 }
