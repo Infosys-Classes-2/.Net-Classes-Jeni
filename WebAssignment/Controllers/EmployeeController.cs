@@ -17,10 +17,38 @@ public class EmployeeController : Controller
     //Tightly coupled code
     //EmployeContext db = new();
 
+<<<<<<< HEAD
     //dependency injection(DI), built-in
     private readonly EmployeContext db;
     
     public EmployeeController(EmployeContext _db)
+=======
+    static List<Employee> employees = new()
+        {
+            new()
+        {
+            id = 1,
+            FirstName = "Ram",
+            LastName = "Basnet",
+            Designation = "Software Engineer",
+            Level = 7,
+            Department = "R&D1",
+            JoinDate = DateTime.Now
+        },
+
+        new()
+        {
+            id=2,
+            FirstName = "Jenny",
+            LastName = "Maharjan",
+            Designation = "Sr. Software Engineer",
+            Level = 7,
+            Department = "R&D1",
+            JoinDate = DateTime.Now
+        }
+    };
+    public IActionResult List()
+>>>>>>> ca00f4868214712eaccc817761d50009b5a89428
     {
         this.db = _db;
     }
@@ -105,6 +133,7 @@ public class EmployeeController : Controller
 
     public void GetPeople()
     {
+<<<<<<< HEAD
         //using ADO.NET
         string connectionString =
         @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TestDB;Integrated Security=True";//Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -144,5 +173,30 @@ public class EmployeeController : Controller
             Console.ReadLine();
 
         }
+=======
+        return View();
+    }
+    [HttpPost]
+    public IActionResult Add(Employee employee)
+    {
+        //Add to db
+        // return RedirectToAction("List"); old method
+       
+        return RedirectToAction(nameof(List));  //it is inter-related to actionname if we change the action name it will show error in compile time
+    }
+    [HttpGet]
+    public IActionResult Edit(int ID)
+    {
+        var employee = employees.Where(x => x.id == ID).First();
+        return View(employee);
+>>>>>>> ca00f4868214712eaccc817761d50009b5a89428
+    }
+
+    [HttpPost]
+    public IActionResult Edit(Employee employee)
+    {
+        //Add to db
+        // return RedirectToAction("List"); old method
+        return RedirectToAction(nameof(List));  //it is inter-related to actionname if we change the action name it will show error in compile time
     }
 }
