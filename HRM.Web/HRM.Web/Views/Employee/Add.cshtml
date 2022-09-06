@@ -6,14 +6,14 @@
 }
 @model Employee
 @{
-    var department = ViewData["Department"];
+   // var department = ViewData["Department"];
     //var degination = ViewData["Desgination"];
 }
 
 
 <div class="card mt-2 p-4"> 
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mb-3">
         <label asp-for="FirstName" class="form-label"></label>
@@ -42,8 +42,13 @@
         <label asp-for="JoinDate" class="form-label"></label>
          <input asp-for="JoinDate" class="form-control" />
     </div>
+    <div>
+           <label asp-for="Avatar" class="form-label">Profile Imge</label>
+            <input asp-for="Avatar" class="form-control" />
+        </div>
         <button type="submit" class="btn btn-success"><i class="bi bi-save"> Save Employee</i></button>
 </form>
+
 </div>
 @section Scripts {
     @{

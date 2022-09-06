@@ -1,5 +1,6 @@
 ﻿using Microsoft.Build.Framework;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HRM.Web.Models;
 
@@ -7,15 +8,18 @@ public class Employee
 {
     public int id { get; set; }
     //add attribute for custome  message -- data annodation
-    [Required(ErrorMessage = "Please Insert First Name")]
+   // [Required(ErrorMessage = "Please Insert First Name")]
     [Display(Name="Your First Name" )]
 
     public string FirstName { get; set; }
     public string LastName { get; set; }
-       public byte Level { get; set; }
+    public byte Level { get; set; }
     public DateTime JoinDate { get; set; }
 
-    public byte[] Avatar { get; set; }
+    [NotMapped]
+    public IFormFile Avatar { get; set; }
+    public string? ProfileImage { get; set; }
+
     //One employee has only one designationsingle designation can be for multiple employees
     public int DesignationId { get; set; }
     public Designation Designation { get; set; }
