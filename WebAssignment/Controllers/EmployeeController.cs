@@ -17,38 +17,10 @@ public class EmployeeController : Controller
     //Tightly coupled code
     //EmployeContext db = new();
 
-<<<<<<< HEAD
     //dependency injection(DI), built-in
     private readonly EmployeContext db;
     
     public EmployeeController(EmployeContext _db)
-=======
-    static List<Employee> employees = new()
-        {
-            new()
-        {
-            id = 1,
-            FirstName = "Ram",
-            LastName = "Basnet",
-            Designation = "Software Engineer",
-            Level = 7,
-            Department = "R&D1",
-            JoinDate = DateTime.Now
-        },
-
-        new()
-        {
-            id=2,
-            FirstName = "Jenny",
-            LastName = "Maharjan",
-            Designation = "Sr. Software Engineer",
-            Level = 7,
-            Department = "R&D1",
-            JoinDate = DateTime.Now
-        }
-    };
-    public IActionResult List()
->>>>>>> ca00f4868214712eaccc817761d50009b5a89428
     {
         this.db = _db;
     }
@@ -90,18 +62,17 @@ public class EmployeeController : Controller
      return View(employee);
       }
 
-    [HttpPost]
-    public IActionResult Edit(Employee employee)
-    {
-        //Add to db
-        //  EmployeContext db = new();
-        db.Employees.Update(employee);
-        db.SaveChanges();
-        return RedirectToAction(nameof(List));
-
-    }
-    [HttpGet]
-    public IActionResult Delete(int ID)
+        new()
+        {
+            FirstName = "Jenny",
+            LastName = "Maharjan",
+            Designation = "Sr. Software Engineer",
+            Level = 7,
+            Department = "R&D1",
+            JoinDate = DateTime.Now
+        }
+    };
+    public IActionResult List()
     {
         var employee = db.Employees.Find(ID);
         return View(employee);
@@ -133,7 +104,6 @@ public class EmployeeController : Controller
 
     public void GetPeople()
     {
-<<<<<<< HEAD
         //using ADO.NET
         string connectionString =
         @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TestDB;Integrated Security=True";//Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -148,32 +118,10 @@ public class EmployeeController : Controller
         using (SqlConnection connection = new(connectionString))
         {
 
-            SqlCommand command = new(queryString, connection);
-
-            // Open the connection i
-
-            // Open the connection in a try/catch block.
-            // Create and execute the DataReader, writing the result
-            // set to the console window.
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    Console.WriteLine("\t{0}\t{1}\t{2}",
-                        reader[0], reader[1], reader[2]);
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            Console.ReadLine();
-
-        }
-=======
+   
+    [HttpGet]
+    public IActionResult Add()
+    {
         return View();
     }
     [HttpPost]
@@ -181,15 +129,13 @@ public class EmployeeController : Controller
     {
         //Add to db
         // return RedirectToAction("List"); old method
-       
         return RedirectToAction(nameof(List));  //it is inter-related to actionname if we change the action name it will show error in compile time
     }
-    [HttpGet]
+
     public IActionResult Edit(int ID)
     {
         var employee = employees.Where(x => x.id == ID).First();
         return View(employee);
->>>>>>> ca00f4868214712eaccc817761d50009b5a89428
     }
 
     [HttpPost]
