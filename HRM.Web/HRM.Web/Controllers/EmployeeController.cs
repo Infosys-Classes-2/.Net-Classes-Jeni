@@ -1,4 +1,5 @@
 ﻿using HRM.Web.Data;
+using HRM.Web.Mapper;
 using HRM.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -39,7 +40,7 @@ public class EmployeeController : Controller
 
     }
     [HttpPost]
-    public async Task<IActionResult>Add(Employee employee)
+    public async Task<IActionResult>Add(EmployeeViewModel employee)
     {
         //Add to db
         //  EmployeContext db = new();
@@ -93,7 +94,7 @@ public class EmployeeController : Controller
 
     [HttpPost]
     
-    public async Task<IActionResult> Edit(Employee emp)
+    public async Task<IActionResult> Edit(EmployeeViewModel emp)
     {
         if (emp.Avatar is not null)
         {
@@ -114,7 +115,7 @@ public class EmployeeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Delete(Employee employee)
+    public IActionResult Delete(EmployeeViewModel employee)
     {
         db.Employees.Remove(employee);
         db.SaveChanges();
@@ -141,8 +142,9 @@ public class EmployeeController : Controller
                      || e.LastName.Contains(searchText))
              .Include(x => x.Department)
              .Include(y => y.Designation).ToListAsync();
-
-        return View(employees);
+        
+        var employeeViewMOdels = employees.ToViewModel(employees);
+        return View(employees.ToViewModel(employees));
     }
 
 
