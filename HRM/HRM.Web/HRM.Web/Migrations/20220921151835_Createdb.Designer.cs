@@ -4,6 +4,7 @@ using HRM.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HRM.Web.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20220921151835_Createdb")]
+    partial class Createdb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,25 +48,6 @@ namespace HRM.Web.Migrations
                     b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("HRM.Web.Models.Designation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Details")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Designations");
-                });
-
             modelBuilder.Entity("HRM.Web.Models.Employee", b =>
                 {
                     b.Property<int>("Id")
@@ -76,8 +59,9 @@ namespace HRM.Web.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DesignationId")
-                        .HasColumnType("int");
+                    b.Property<string>("Designation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -97,8 +81,6 @@ namespace HRM.Web.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.HasIndex("DesignationId");
-
                     b.ToTable("Employees");
                 });
 
@@ -110,15 +92,7 @@ namespace HRM.Web.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HRM.Web.Models.Designation", "Designation")
-                        .WithMany()
-                        .HasForeignKey("DesignationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Department");
-
-                    b.Navigation("Designation");
                 });
 #pragma warning restore 612, 618
         }
